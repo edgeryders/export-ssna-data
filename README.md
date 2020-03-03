@@ -48,3 +48,7 @@ This script relies on a small module called `z_discourse_API_functions`. You can
 Some of the functions in the module access data that are only visible to users of the Discourse site you are using. For them to work, you will need to request an API key to the site admins. 
 
 The functions to access ethnographic codes and annotations obviously only work if the Discourse installation supports ethnography. This is true for the different communities spawned around Edgeryders. You can create your own ethnography-ready Discourse forum using [this repository](https://github.com/edgeryders/discourse).
+
+## Documenting your data
+
+We recommend using the Data Package standard ([see](https://edgeryders.eu/t/using-the-edgeryders-eu-apis/7904)). We provide a template datapackage.json. 
