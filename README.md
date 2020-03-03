@@ -51,4 +51,4 @@ The functions to access ethnographic codes and annotations obviously only work i
 
 ## Documenting your data
 
-We recommend using the Data Package standard ([see](https://edgeryders.eu/t/using-the-edgeryders-eu-apis/7904)). We provide a template datapackage.json. 
+We recommend using the Data Package standard ([see](https://edgeryders.eu/t/using-the-edgeryders-eu-apis/7904)). We provide a template `datapackage.json`. 
