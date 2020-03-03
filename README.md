@@ -37,8 +37,8 @@ For a more detailed description, see [the edgeryders.eu APIs documentation](http
 
 The repo has two scripts. 
 
-* **download_and_pseudonymize.py** accesses your Discourse site via API and saves four CSV files, starting from a tag. These contain all you need to run a social semantic network analysis of the conversation around that tag. The files are pseudonymized for data protection and research ethics purposes (see the documentation on edgeryders.eu for a more detailed explanation).
-* **trim_datapackage.py** is useful if you use data.world to automatically generate your dapackage.json metadata file. It gets rid of some quirks concerning the generation of a metadata file from a set of CSV files in data.world.
+* `download_and_pseudonymize.py` accesses your Discourse site via API and saves four CSV files, starting from a tag. These contain all you need to run a social semantic network analysis of the conversation around that tag. The files are pseudonymized for data protection and research ethics purposes (see the documentation on edgeryders.eu for a more detailed explanation).
+* `trim_datapackage.py` is useful if you use data.world to automatically generate your dapackage.json metadata file. It gets rid of some quirks concerning the generation of a metadata file from a set of CSV files in data.world.
 
 
 ## What you need to use this script
