@@ -27,24 +27,39 @@ def export_users_posts(tag):
             thisPost['post_id'] = post['post_id']
             thisPost['post_number'] = post['post_number'] # can be used to rebuild the sequence of posts in the topic
             thisPost['source_username'] = post['username'] # the post's author is the source of the edge.
-            thisPost['target_username'] = post ['target_username'] 
-            thisPost['reply_to_post_id'] = post['reply_to_post_id']
+            thisPost['target_username'] = post ['target_username']
+            if 'reply_to_post_id' in post:
+                thisPost['reply_to_post_id'] = post['reply_to_post_id']
+            else:
+                thisPost['reply_to_post_id'] = 1
             ## NOTE! target_username defaults to the creator of the first post in the topic when a user hits the Reply button. 
             ## reply_to_post_id defaults to the ID of the first post in the topic
             ## This means that each first post in a category creates a self-loop in the social network
             thisPost['created_at'] = post['created_at'] # post date 
             thisPost['text'] = post['raw']
             allPosts.append(thisPost)
-    
+
+    ## build a list of participants
     participants = []
     for post in allPosts:
         participant = post['source_username']
         if participant not in participants:
             participants.append(participant)
+
+    ## remove participants who have not given informed consent to participating in research,
+    ## if any. Documentation: https://edgeryders.eu/t/consent-process-manual/11904
+    for participant in participants:
+        if api.check_consent(participant) == False:
+            participants.remove(participant)
+            print(participant + ' removed')
+            ## also remove any posts authored by participant
+            for post in allPosts:
+                if post['source_username'] == participant:
+                    allPosts.remove(post)
             
     to_return['posts'] = allPosts
     to_return['participants'] = participants
-    return to_return
+    return to_return    
 
 def make_pseudonyms_map (names):
     '''
@@ -80,7 +95,10 @@ def pseudonymize(data):
         clean_post['post_number'] = post['post_number'] # these four values in the post are not affected by pseudonymization
         clean_post['post_id'] = post['post_id'] 
         clean_post['created_at'] = post['created_at']
-        clean_post['reply_to_post_id'] = post['reply_to_post_id']
+        if 'reply_to_post_id' in post:
+            clean_post['reply_to_post_id'] = post['reply_to_post_id']
+        else:
+            clean_post['reply_to_post_id'] = 1 # by default, a reply is to the first post in the topic           
         clean_text = str(post['text'])
         # remove pictures and replace with a placeholder
         clean_text = re.sub("!\[.{5,}.jpeg\)", "<image here> \n", clean_text)
@@ -188,10 +206,13 @@ def read_files(dirPath):
 if __name__ == '__main__':
     greetings = 'Hello world'
     print (greetings)
-    dirPath = '/Users/albertocottica/Documents/Edgeryders the company/SSNA_data_export/poprebel test folder/'
-    success = export_users_posts('ethno-poprebel')
+    ## change the dirPath variable to the directory where you want to store the data
+    dirPath = '/Users/albertocottica/Documents/Edgeryders the company/SSNA_data_export/ngi test folder/'
+    ## change the tag variable to the tag that denotes your project
+    tag = 'ethno-ngi-forward'
+    success = export_users_posts(tag)
     pseudo = pseudonymize(success)
     writedown = write_posts_users (dirPath, pseudo)
-    annos = api.fetch_annos('ethno-poprebel')
+    annos = api.fetch_annos(tag)
     codes = api.fetch_codes_from_annos(annos)
     writedown2 = write_anno_codes(annos, codes)
