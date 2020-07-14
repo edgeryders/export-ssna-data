@@ -7,6 +7,7 @@ sys.path.append('/Users/albertocottica/Documents/GitHub/discourse-social-network
 
 import z_discourse_API_functions as api
 import csv
+import time
 
 def export_users_posts(tag):
     '''
@@ -26,6 +27,7 @@ def export_users_posts(tag):
             thisPost = {} # each post of each topic is an item in allPosts. Each item is an edge in the SSN-.
             thisPost['post_id'] = post['post_id']
             thisPost['post_number'] = post['post_number'] # can be used to rebuild the sequence of posts in the topic
+            thisPost['topic_id'] = int(top)
             thisPost['source_username'] = post['username'] # the post's author is the source of the edge.
             thisPost['target_username'] = post ['target_username']
             if 'reply_to_post_id' in post:
@@ -37,6 +39,13 @@ def export_users_posts(tag):
             ## This means that each first post in a category creates a self-loop in the social network
             thisPost['created_at'] = post['created_at'] # post date 
             thisPost['text'] = post['raw']
+            qual_metrics = ['reply_count', 'reads', 'readers_count', 'incoming_link_count', 'quote_count', 'like_count', 'score']
+            for qm in qual_metrics:
+                thisPost[qm] = post[qm]
+##                if qm in post:
+##                    thisPost[qm] = post[qm]
+##                else:
+##                    thisPost[qm] = 0           
             allPosts.append(thisPost)
 
     ## build a list of participants
@@ -49,6 +58,7 @@ def export_users_posts(tag):
     ## remove participants who have not given informed consent to participating in research,
     ## if any. Documentation: https://edgeryders.eu/t/consent-process-manual/11904
     for participant in participants:
+        time.sleep(0.1)
         if api.check_consent(participant) == False:
             participants.remove(participant)
             print(participant + ' removed')
@@ -95,6 +105,9 @@ def pseudonymize(data):
         clean_post['post_number'] = post['post_number'] # these four values in the post are not affected by pseudonymization
         clean_post['post_id'] = post['post_id'] 
         clean_post['created_at'] = post['created_at']
+        qual_metrics = ['reply_count', 'reads', 'readers_count', 'incoming_link_count', 'quote_count', 'like_count', 'score']
+        for qm in qual_metrics:
+            clean_post[qm] = post[qm]
         if 'reply_to_post_id' in post:
             clean_post['reply_to_post_id'] = post['reply_to_post_id']
         else:
@@ -181,35 +194,14 @@ def write_anno_codes(anno, codes):
         for code in codes:
             codesWriter.writerow(code)
 
-        
-
-        
-
-def read_files(dirPath):
-    '''
-    only for dev purposes, remember to delete.
-    '''
-    with open (dirPath + 'participants.csv', 'r', encoding = 'utf-8') as partFile:
-        partReader = csv.DictReader(partFile)
-        part = []
-        for row in partReader:
-            part.append(row['participant'])
-    with open (dirPath + 'posts.csv', 'r', encoding = 'utf-8') as postFile:
-        postReader = csv.DictReader(postFile)
-        posts = [] 
-        for row in postReader:
-            posts.append(row)
-    mydata = {'posts': posts, 'participants':part}
-    return mydata
-
     
 if __name__ == '__main__':
     greetings = 'Hello world'
     print (greetings)
     ## change the dirPath variable to the directory where you want to store the data
-    dirPath = '/Users/albertocottica/Documents/Edgeryders the company/SSNA_data_export/ngi test folder/'
+    dirPath = '/Users/albertocottica/Documents/Edgeryders the company/SSNA_data_export/all_projects/'
     ## change the tag variable to the tag that denotes your project
-    tag = 'ethno-ngi-forward'
+    tag = 'ethno-opencare'
     success = export_users_posts(tag)
     pseudo = pseudonymize(success)
     writedown = write_posts_users (dirPath, pseudo)
