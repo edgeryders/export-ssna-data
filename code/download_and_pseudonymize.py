@@ -102,9 +102,10 @@ def pseudonymize(data):
 
     for post in data['posts']:
         clean_post = {} # initialize a pseudonymized post
-        clean_post['post_number'] = post['post_number'] # these four values in the post are not affected by pseudonymization
+        clean_post['post_number'] = post['post_number'] # these five values in the post are not affected by pseudonymization
         clean_post['post_id'] = post['post_id'] 
         clean_post['created_at'] = post['created_at']
+        clean_post['topic_id'] = str(post['topic_id']) # remember this had been transformed into int in export_users_posts(tag)
         qual_metrics = ['reply_count', 'reads', 'readers_count', 'incoming_link_count', 'quote_count', 'like_count', 'score']
         for qm in qual_metrics:
             clean_post[qm] = post[qm]
@@ -199,9 +200,9 @@ if __name__ == '__main__':
     greetings = 'Hello world'
     print (greetings)
     ## change the dirPath variable to the directory where you want to store the data
-    dirPath = '/Users/albertocottica/Documents/Edgeryders the company/SSNA_data_export/all_projects/'
+    dirPath = 'C:\\Users\\Alberto\\Downloads\\'
     ## change the tag variable to the tag that denotes your project
-    tag = 'ethno-opencare'
+    tag = 'ethno-poprebel'
     success = export_users_posts(tag)
     pseudo = pseudonymize(success)
     writedown = write_posts_users (dirPath, pseudo)
