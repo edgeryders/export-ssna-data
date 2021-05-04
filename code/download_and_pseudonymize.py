@@ -200,9 +200,9 @@ if __name__ == '__main__':
     greetings = 'Hello world'
     print (greetings)
     ## change the dirPath variable to the directory where you want to store the data
-    dirPath = 'C:\\Users\\Alberto\\Downloads\\'
+    dirPath = 'C:\\Users\\Alberto\\Documents\\quick export\\opencare\\'
     ## change the tag variable to the tag that denotes your project
-    tag = 'ethno-poprebel'
+    tag = 'ethno-opencare'
     success = export_users_posts(tag)
     pseudo = pseudonymize(success)
     writedown = write_posts_users (dirPath, pseudo)

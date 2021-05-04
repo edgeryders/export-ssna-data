@@ -1,1 +1,338 @@
-{"name": "haiku66_PROJECTNAME-ssn-data", "title": "PROJECTNAME SSN data", "description": "Pseudonymized data of the semantic social network from the PROJECTNAME project.\n\n---\n{\"editor\":\"simple\"}\n---\nProject website: PROJECTWEBSITE", "homepage": "https://PROJECT.HOMEPAGE", "license": "CC-BY-4.0", "resources": [{"name": "annotations", "schema": {"fields": [{"name": "id", "title": "id", "description": "Unique ID for the annotation", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}, {"name": "version", "title": "version", "description": "Open Ethnographer version", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "text", "title": "text", "description": "Comment field that ethnographer can use to explain their thinking behind the annotation.", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "quote", "title": "quote", "description": "The snippet of text being annotated.", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "uri", "title": "uri", "description": "The URI of the resource being annotated", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "created_at", "title": "created_at", "description": "The annotation's creation date.", "type": "datetime", "rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"}, {"name": "updated_at", "title": "updated_at", "description": "The annotation's update date.", "type": "datetime", "rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"}, {"name": "post_id", "title": "post_id", "description": "ID of the post annotated.", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}, {"name": "creator_id", "title": "creator_id", "description": "Unique ID of the ethnographer who created the annotation", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}, {"name": "type", "title": "type", "description": "Type of resource being annotated (text, image, etc.)", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "shape", "title": "shape", "description": "When annotating multimedia resources, identifies the portion of the image being annotated.", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "units", "title": "units", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "geometry", "title": "geometry", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "src", "title": "src", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "ext", "title": "ext", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "container", "title": "container", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "start", "title": "start", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "end", "title": "end", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "code_id", "title": "code_id", "description": "Unique ID of the code associated to the quote or part of the multimedia resource.", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}]}, "format": "csv", "description": "Ethnographic annotations from the PROJECTNAME project."}, {"name": "codes", "schema": {"fields": [{"name": "id", "title": "id", "description": "Unique ID for the code", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}, {"name": "description", "title": "description", "description": "An extended description of the code and what kind of testimonies it points to", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "creator_id", "title": "creator_id", "description": "Unique ID for the ethnographer that created this code", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}, {"name": "created_at", "title": "created_at", "description": "Creation date", "type": "datetime", "rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"}, {"name": "updated_at", "title": "updated_at", "description": "Date of the latest update.", "type": "datetime", "rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"}, {"name": "ancestry", "title": "ancestry", "description": "Parent code", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "names", "title": "names", "description": "List referring to this code of names and the languages they are expressed in.", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}]}, "format": "csv", "description": "Ethnographic codes from the PROJECTNAME project"}, {"name": "participants", "schema": {"fields": [{"name": "participant", "title": "participant", "description": "Unique ID of the participant", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}]}, "format": "csv", "description": "A pseudonymized list of participants to the PROJECTNAME conversation."}, {"name": "posts", "schema": {"fields": [{"name": "topic_id", "title": "topic_id", "description": "Unique ID fof the topic (forum thread) that the post is in.", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}, {"name": "post_number", "title": "post_number", "description": "Progressive number of the post in the topic.", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}, {"name": "post_id", "title": "post_id", "description": "Unique ID for the post", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}, {"name": "created_at", "title": "created_at", "description": "Post creation date", "type": "datetime", "rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"}, {"name": "reply_to_post_id", "title": "reply_to_post_id", "description": "ID of the post that this post is a reply to.", "type": "integer", "rdfType": "http://www.w3.org/2001/XMLSchema#integer"}, {"name": "source_username", "title": "source_username", "description": "The post's author.", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "target_username", "title": "target_username", "description": "The author of the post that this post is a reply to.", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}, {"name": "text", "title": "text", "description": "The posts' full text (raw).", "type": "string", "rdfType": "http://www.w3.org/2001/XMLSchema#string"}]}, "format": "csv", "description": "All posts in the PROJECTNAME conversation. The IDs for author/recipient and the text have been pseudonymized."}]}
+{
+	"title": "PROJECTNAME SSN data",
+	"description": "Pseudonymized data of the semantic social network from the PROJECTNAME project.\n\n---\n{\"editor\":\"simple\"}\n---\nProject website: PROJECTWEBSITE",
+	"homepage": "https://PROJECT.HOMEPAGE",
+	"license": "CC-BY-4.0",
+	"resources": [
+		{
+			"name": "annotations",
+			"schema": {
+				"fields": [
+					{
+						"name": "id",
+						"title": "id",
+						"description": "Unique ID for the annotation",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+					{
+						"name": "version",
+						"title": "version",
+						"description": "Open Ethnographer version",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "text",
+						"title": "text",
+						"description": "Comment field that ethnographer can use to explain their thinking behind the annotation.",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "quote",
+						"title": "quote",
+						"description": "The snippet of text being annotated.",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "uri",
+						"title": "uri",
+						"description": "The URI of the resource being annotated",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "created_at",
+						"title": "created_at",
+						"description": "The annotation's creation date.",
+						"type": "datetime",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+					},
+					{
+						"name": "updated_at",
+						"title": "updated_at",
+						"description": "The annotation's update date.",
+						"type": "datetime",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+					},
+					{
+						"name": "post_id",
+						"title": "post_id",
+						"description": "ID of the post annotated.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+					{
+						"name": "creator_id",
+						"title": "creator_id",
+						"description": "Unique ID of the ethnographer who created the annotation",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+					{
+						"name": "type",
+						"title": "type",
+						"description": "Type of resource being annotated (text, image, etc.)",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "shape",
+						"title": "shape",
+						"description": "When annotating multimedia resources, identifies the portion of the image being annotated.",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "units",
+						"title": "units",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "geometry",
+						"title": "geometry",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "src",
+						"title": "src",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "ext",
+						"title": "ext",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "container",
+						"title": "container",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "start",
+						"title": "start",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "end",
+						"title": "end",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "code_id",
+						"title": "code_id",
+						"description": "Unique ID of the code associated to the quote or part of the multimedia resource.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					}
+				]
+			},
+			"format": "csv",
+			"description": "Ethnographic annotations from the PROJECTNAME project."
+		},
+		{
+			"name": "codes",
+			"schema": {
+				"fields": [
+					{
+						"name": "id",
+						"title": "id",
+						"description": "Unique ID for the code",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+					{
+						"name": "description",
+						"title": "description",
+						"description": "An extended description of the code and what kind of testimonies it points to",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "creator_id",
+						"title": "creator_id",
+						"description": "Unique ID for the ethnographer that created this code",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+					{
+						"name": "created_at",
+						"title": "created_at",
+						"description": "Creation date",
+						"type": "datetime",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+					},
+					{
+						"name": "updated_at",
+						"title": "updated_at",
+						"description": "Date of the latest update.",
+						"type": "datetime",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+					},
+					{
+						"name": "ancestry",
+						"title": "ancestry",
+						"description": "Parent code",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "names",
+						"title": "names",
+						"description": "List referring to this code of names and the languages they are expressed in.",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "name_with_path",
+						"title": "name_with_path",
+						"description": "The name of the code, preceded by those of the codes in its ancestry.",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					}
+				]
+			},
+			"format": "csv",
+			"description": "Ethnographic codes from the PROJECTNAME project"
+		},
+		{
+			"name": "participants",
+			"schema": {
+				"fields": [
+					{
+						"name": "participant",
+						"title": "participant",
+						"description": "Unique ID of the participant",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					}
+				]
+			},
+			"format": "csv",
+			"description": "A pseudonymized list of participants to the PROJECTNAME conversation."
+		},
+		{
+			"name": "posts",
+			"schema": {
+				"fields": [
+				{
+						"name": "post_number",
+						"title": "post_number",
+						"description": "Progressive number of the post in the topic.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+										{
+						"name": "post_id",
+						"title": "post_id",
+						"description": "Unique ID for the post",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+					{
+						"name": "created_at",
+						"title": "created_at",
+						"description": "Post creation date",
+						"type": "datetime",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+					},
+					{
+						"name": "topic_id",
+						"title": "topic_id",
+						"description": "Unique ID for the topic (forum thread) that the post is in.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+					{
+						"name": "reply_count",
+						"title": "reply_count",
+						"description": "The number of direct replies to this post. Used as an indicator of quality.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+										{
+						"name": "reads",
+						"title": "reads",
+						"description": "The number of reads of this post. Used as an indicator of quality.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+															{
+						"name": "readers_count",
+						"title": "readers_count",
+						"description": "The number of unique readers (logged in) of this post. Used as an indicator of quality.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+										{
+						"name": "incoming_link_count  ",
+						"title": "incoming_link_count  ",
+						"description": "The number of links from other posts to this one. Used as an indicator of quality.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+										{
+						"name": "quote_count            ",
+						"title": "quote_count            ",
+						"description": "The number of quotes of this post. Used as an indicator of quality.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+										{
+						"name": "like_count            ",
+						"title": "like_count            ",
+						"description": "The number of likes (on Discourse) to this post. Used as an indicator of quality.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+										{
+						"name": "score            ",
+						"title": "score            ",
+						"description": "A pre-computed quality score in Discourse.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+					{
+						"name": "reply_to_post_id",
+						"title": "reply_to_post_id",
+						"description": "ID of the post that this post is a reply to.",
+						"type": "integer",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#integer"
+					},
+					{
+						"name": "source_username",
+						"title": "source_username",
+						"description": "The post's author.",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "target_username",
+						"title": "target_username",
+						"description": "The author of the post that this post is a reply to.",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					},
+					{
+						"name": "text",
+						"title": "text",
+						"description": "The posts' full text (raw).",
+						"type": "string",
+						"rdfType": "http://www.w3.org/2001/XMLSchema#string"
+					}
+				]
+			},
+			"format": "csv",
+			"description": "All posts in the PROJECTNAME conversation. The IDs for author/recipient and the text have been pseudonymized."
+		}
+	]
+}
