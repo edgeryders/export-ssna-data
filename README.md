@@ -43,7 +43,7 @@ The repo has two scripts.
 
 ## What you need to use this script
 
-This script relies on a small module called `z_discourse_API_functions`. You can find it [here](https://github.com/albertocottica/discourse-social-networks/blob/master/code/python%20scripts/z_discourse_API_functions.py). 
+This script relies on a small module called `z_discourse_API_functions`. You can find it [here](https://github.com/edgeryders/network-viz-for-ssna/blob/f68ac966547f4c388b8e5a5999b150cfae29148e/code/python%20scripts/z_discourse_API_functions.py). 
 
 Some of the functions in the module access data that are only visible to users of the Discourse site you are using. For them to work, you will need to request an API key to the site admins. 
 

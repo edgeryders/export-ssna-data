@@ -3,7 +3,7 @@
 
 import sys
 # replace the path below with the one where you are storing the z_discourse_API_functions module
-sys.path.append('/Users/albertocottica/Documents/GitHub/discourse-social-networks/code/python scripts/') 
+sys.path.append('/Users/albertocottica/Documents/GitHub/network-viz-for-ssna/code/python scripts/') 
 
 import z_discourse_API_functions as api
 import csv
