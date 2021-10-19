@@ -57,8 +57,13 @@ def export_users_posts(tag):
 
     ## remove participants who have not given informed consent to participating in research,
     ## if any. Documentation: https://edgeryders.eu/t/consent-process-manual/11904
+    print('The Edgeryders server limits the number of API calls per minute.')
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    print('Taking a 30 seconds break, starting at ' + str(current_time))
+    time.sleep(30)
     for participant in participants:
-        time.sleep(0.1)
+        time.sleep(0.2)
         if api.check_consent(participant) == False:
             participants.remove(participant)
             print(participant + ' removed')
@@ -200,7 +205,7 @@ if __name__ == '__main__':
     greetings = 'Hello world'
     print (greetings)
     ## change the dirPath variable to the directory where you want to store the data
-    dirPath = 'C:\\Users\\Alberto\\Documents\\quick export\\opencare\\'
+    dirPath = '/Users/albertocottica/Downloads/'
     ## change the tag variable to the tag that denotes your project
     tag = 'ethno-opencare'
     success = export_users_posts(tag)
@@ -209,3 +214,8 @@ if __name__ == '__main__':
     annos = api.fetch_annos(tag)
     codes = api.fetch_codes_from_annos(annos)
     writedown2 = write_anno_codes(annos, codes)
+    print ('The ' + tag + ' corpus has:')
+    print (str(len(success['posts'])) + ' posts')
+    print (str(len(success['participants'])) + ' participants')
+    print (str(len(annos)) + 'annotations')
+    print (str(len(codes)) + 'codes')
