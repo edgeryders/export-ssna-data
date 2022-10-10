@@ -207,7 +207,7 @@ if __name__ == '__main__':
     ## change the dirPath variable to the directory where you want to store the data
     dirPath = '/Users/albertocottica/Downloads/'
     ## change the tag variable to the tag that denotes your project
-    tag = 'ethno-opencare'
+    tag = 'ethno-rebelpop-polska-interviews'
     success = export_users_posts(tag)
     pseudo = pseudonymize(success)
     writedown = write_posts_users (dirPath, pseudo)
